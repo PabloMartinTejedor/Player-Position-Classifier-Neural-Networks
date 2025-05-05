@@ -17,7 +17,7 @@ The entire pipeline is implemented from scratch using PyTorch and follows a stru
 
 The dataset used contains statistics from professional football players, such as number of blocks, tackles, progressive passes, goals, and carries, along with the actual position each player performed in. These features are used to classify the ideal position of the player.
 
-📎 You can access the dataset from the following link:  
+You can access the dataset from the following link:  
 [🔗 Player Statistics Dataset](https://www.kaggle.com/datasets/vivovinco/20212022-football-team-stats)
 
 ---
