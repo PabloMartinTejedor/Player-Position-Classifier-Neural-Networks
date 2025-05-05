@@ -4,14 +4,12 @@ This project focuses on classifying the ideal playing position of a football pla
 
 This classification task is inspired by real-world scenarios such as:
 
-- 🔄 Position Reassignment — Identifying players who might perform better in a different role (e.g., like in "Moneyball").
-- 🎭 Versatility Detection — Recognizing hybrid or multi-role players.
-- 🔍 Scouting Optimization — Suggesting ideal profiles for recruitment.
-- 🎮 Video Game Integration — Enabling team auto-generation and improving realism through AI.
+- **Position Reassignment** — Identifying players who might perform better in a different role.
+- **Versatility Detection** — Recognizing hybrid or multi-role players.
+- **Scouting Optimization** — Suggesting ideal profiles for recruitment.
+- **Video Game Integration** — Enabling team auto-generation and improving realism through AI.
 
 The entire pipeline is implemented from scratch using PyTorch and follows a structured machine learning approach: preprocessing, model definition, training, evaluation and comparison.
-
----
 
 ## 📚 Dataset Description
 
@@ -20,20 +18,16 @@ The dataset used contains statistics from professional football players, such as
 You can access the dataset from the following link:  
 [🔗 Player Statistics Dataset](https://www.kaggle.com/datasets/vivovinco/20212022-football-team-stats)
 
----
-
 ## ⚖️ Preprocessing Steps
 
 The preprocessing pipeline includes the following steps:
 
-- 🔍 Feature Selection: We filtered the dataset to include only the most relevant attributes for player behavior and performance, including the target column `Pos` (position).
-- 🔢 Label Encoding: The target variable `Pos` was categorical (e.g., 'MF', 'DF', etc.), so it was converted to numeric labels using `LabelEncoder`.
-- 📉 Normalization: All input features were scaled to a range [0, 1] using `MinMaxScaler` to ensure uniform influence during training.
-- 🧪 Train/Test Split: The data was split into 80% for training and 20% for testing. This allows us to train the model on one part of the data and evaluate its ability to generalize to unseen examples.
-- 🔄 Tensor Conversion: The training and test data were converted to PyTorch tensors, with the appropriate data types (`float32` for features and `int64` for targets).
-- 📦 Batching: We organized the data into batches of 32 using `DataLoader` for efficient training.
-
----
+1. **Feature Selection**: We filtered the dataset to include only the most relevant attributes for player behavior and performance, including the target column `Pos` (position).
+2. **Label Encoding**: The target variable `Pos` was categorical (e.g., 'MF', 'DF', etc.), so it was converted to numeric labels using `LabelEncoder`.
+3. **Normalization**: All input features were scaled to a range [0, 1] using `MinMaxScaler` to ensure uniform influence during training.
+4. **Train/Test Split**: The data was split into 80% for training and 20% for testing. This allows us to train the model on one part of the data and evaluate its ability to generalize to unseen examples.
+5. **Tensor Conversion**: The training and test data were converted to PyTorch tensors, with the appropriate data types (`float32` for features and `int64` for targets).
+6. **Batching**: We organized the data into batches of 32 using `DataLoader` for efficient training.
 
 ## 🧬 Models Trained
 
@@ -51,18 +45,14 @@ We trained and evaluated the following fully connected (dense) neural network ar
 
 We used accuracy as the evaluation metric since the dataset is balanced across all position categories.
 
----
-
 ## 📊 Results & Observations
 
-- ✅ Adding hidden layers and non-linear activations significantly improved performance over the simple linear model.
-- 🔼 Tanh slightly outperformed ReLU in our tests.
-- 🚀 Batch Normalization yielded the best gains in both training speed and final accuracy.
-- ⛔ Dropout decreased accuracy in this setting, though p=0.2 performed better than p=0.3.
-- ⚡ Momentum accelerated convergence and stabilized training, especially when combined with BatchNorm.
-- 📉 The error curves showed consistent improvement across 100 epochs for most models.
-
----
+- Adding hidden layers and non-linear activations significantly improved performance over the simple linear model.
+- Tanh slightly outperformed ReLU in our tests.
+- Batch Normalization yielded the best gains in both training speed and final accuracy.
+- Dropout decreased accuracy in this setting, though p=0.2 performed better than p=0.3.
+- Momentum accelerated convergence and stabilized training, especially when combined with BatchNorm.
+- The error curves showed consistent improvement across 100 epochs for most models.
 
 ## ⚡ Execution Instructions
 
